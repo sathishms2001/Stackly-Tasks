@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fb;
+}
+
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.signup-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #222;
+}
+
+.signup-header p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d8dce3;
+  border-radius: 7px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  border-color: #4f46e5;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+.signup-button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 7px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signup-button:hover {
+  background-color: #4338ca;
+}
+
+.login-section {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+.login-link {
+  margin-left: 5px;
+  border: none;
+  background: none;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+.required {
+  color: #f59e0b;
+  margin-left: 2px;
+}
+
+.error-message {
+  margin: 5px 0 0;
+  color: #e53935;
+  font-size: 13px;
+}
+.success-message {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 7px;
+  background-color: #ecfdf5;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  font-size: 14px;
+  text-align: center;
+}
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #222;
+}
+
+.login-header p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.login-button {
+  width: 100%;
+  height: 45px;
+  border: none;
+  border-radius: 7px;
+  background-color: #4f46e5;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #4338ca;
+}
+
+.signup-section {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+.signup-link {
+  margin-left: 5px;
+  border: none;
+  background: none;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+.dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 45px 40px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  color: #16a34a;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.dashboard-card h1 {
+  margin: 0 0 12px;
+  color: #1f2937;
+  font-size: 30px;
+}
+
+.dashboard-message {
+  margin: 0;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.dashboard-subtitle {
+  margin: 8px 0 28px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.back-login-button {
+  width: 100%;
+  max-width: 220px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.back-login-button:hover {
+  background-color: #4338ca;
+}
