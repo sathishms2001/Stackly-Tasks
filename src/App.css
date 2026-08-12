@@ -1,0 +1,585 @@
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #d1d5db;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 10%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+/* =========================
+   Header
+   ========================= */
+
+header {
+  padding: var(--spacing-xl);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+header h1 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0 0 var(--spacing-lg);
+  color: var(--color-text-muted);
+}
+
+header button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+}
+
+
+/* =========================
+   Main Content
+   ========================= */
+
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+}
+
+
+/* =========================
+   Filter Section
+   ========================= */
+
+section[aria-labelledby="filter-heading"] {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+section[aria-labelledby="filter-heading"] h2 {
+  margin-top: 0;
+}
+
+section[aria-labelledby="filter-heading"] form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+section[aria-labelledby="filter-heading"] form > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+section[aria-labelledby="filter-heading"] label {
+  font-weight: 600;
+}
+
+section[aria-labelledby="filter-heading"] input,
+section[aria-labelledby="filter-heading"] select {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-surface);
+}
+
+
+/* =========================
+   Filter Buttons
+   ========================= */
+
+section[aria-labelledby="filter-heading"] button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+}
+
+section[aria-labelledby="filter-heading"] button[type="submit"] {
+  background: var(--color-primary);
+  color: white;
+}
+
+section[aria-labelledby="filter-heading"] button[type="reset"] {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+
+/* =========================
+   Focus States
+   ========================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 30%);
+  outline-offset: 2px;
+}
+/* =========================
+   Sales Pipeline - Kanban
+   ========================= */
+
+section[aria-labelledby="pipeline-heading"] {
+  margin-bottom: var(--spacing-xl);
+}
+
+section[aria-labelledby="pipeline-heading"] > h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Stage columns */
+
+section[aria-labelledby="pipeline-heading"] > section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: #eef2f7;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+}
+
+/* Stage heading */
+
+section[aria-labelledby="pipeline-heading"] > section > h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Lead / Opportunity Cards */
+
+section[aria-labelledby="pipeline-heading"] article {
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+section[aria-labelledby="pipeline-heading"] article h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+section[aria-labelledby="pipeline-heading"] article p {
+  margin: var(--spacing-xs) 0;
+  color: var(--color-text-muted);
+}
+
+/* Card button */
+
+section[aria-labelledby="pipeline-heading"] article button {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+}
+/* =========================
+   Kanban Board Layout
+   ========================= */
+
+section[aria-labelledby="pipeline-heading"] {
+  overflow-x: auto;
+}
+
+section[aria-labelledby="pipeline-heading"] {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+  align-items: start;
+}
+
+section[aria-labelledby="pipeline-heading"] > h2 {
+  grid-column: 1 / -1;
+}
+
+/* Stage columns */
+
+section[aria-labelledby="pipeline-heading"] > section {
+  min-width: 220px;
+  min-height: 300px;
+  margin: 0;
+}
+
+/* =========================
+   Card Hover State
+   ========================= */
+
+section[aria-labelledby="pipeline-heading"] article {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+section[aria-labelledby="pipeline-heading"] article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 12%);
+}
+
+
+/* =========================
+   Button Hover State
+   ========================= */
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+
+/* =========================
+   Tablet
+   ========================= */
+
+@media (max-width: 1200px) {
+  section[aria-labelledby="pipeline-heading"] {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 768px) {
+  main {
+    padding: var(--spacing-md);
+  }
+
+  section[aria-labelledby="filter-heading"] form {
+    grid-template-columns: 1fr;
+  }
+
+  section[aria-labelledby="pipeline-heading"] {
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  section[aria-labelledby="pipeline-heading"] > section {
+    width: 100%;
+    min-width: 0;
+  }
+
+  header {
+    padding: var(--spacing-lg);
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+}
+/* =========================
+   Lead Details Panel
+   ========================= */
+
+aside[aria-labelledby="lead-details-heading"] {
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+aside[aria-labelledby="lead-details-heading"] > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 var(--spacing-lg);
+  background: transparent;
+  border-bottom: 1px solid var(--color-border);
+}
+
+aside[aria-labelledby="lead-details-heading"] > header h2 {
+  margin: 0;
+}
+
+aside[aria-labelledby="lead-details-heading"] > header button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+aside[aria-labelledby="lead-details-heading"] > section {
+  padding: var(--spacing-lg) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+aside[aria-labelledby="lead-details-heading"] > section h3 {
+  margin-top: 0;
+}
+
+aside[aria-labelledby="lead-details-heading"] p {
+  margin: var(--spacing-sm) 0;
+}
+
+aside[aria-labelledby="lead-details-heading"] dl {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin: 0;
+}
+
+aside[aria-labelledby="lead-details-heading"] dl div {
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--border-radius-sm);
+}
+
+aside[aria-labelledby="lead-details-heading"] dt {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+aside[aria-labelledby="lead-details-heading"] dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+aside[aria-labelledby="lead-details-heading"] table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+aside[aria-labelledby="lead-details-heading"] caption {
+  margin-bottom: var(--spacing-sm);
+  text-align: left;
+  font-weight: 600;
+}
+
+aside[aria-labelledby="lead-details-heading"] th,
+aside[aria-labelledby="lead-details-heading"] td {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+aside[aria-labelledby="lead-details-heading"] > footer {
+  display: flex;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+}
+
+aside[aria-labelledby="lead-details-heading"] > footer button {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-primary);
+  color: white;
+  cursor: pointer;
+}
+
+/* =========================
+   Visual Drag States
+   ========================= */
+
+/* Card while dragging */
+section[aria-labelledby="pipeline-heading"] article:active {
+  cursor: grabbing;
+  opacity: 0.7;
+  transform: rotate(1deg);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 18%);
+}
+
+/* Card can appear draggable */
+section[aria-labelledby="pipeline-heading"] article {
+  cursor: grab;
+}
+
+/* Visual drop-target state */
+section[aria-labelledby="pipeline-heading"] > section:focus-within {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 3px;
+}
+
+
+/* =========================
+   Form Validation States
+   ========================= */
+
+section[aria-labelledby="filter-heading"] input:invalid,
+section[aria-labelledby="filter-heading"] select:invalid,
+section[id="forms"] input:invalid,
+section[id="forms"] select:invalid,
+section[id="forms"] textarea:invalid {
+  border-color: #dc2626;
+}
+
+section[aria-labelledby="filter-heading"] input:valid,
+section[aria-labelledby="filter-heading"] select:valid,
+section[id="forms"] input:valid,
+section[id="forms"] select:valid,
+section[id="forms"] textarea:valid {
+  border-color: #16a34a;
+}
+
+
+/* =========================
+   Input Hover States
+   ========================= */
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--color-primary);
+}
+
+
+/* =========================
+   Button Focus States
+   ========================= */
+
+button:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 30%);
+  outline-offset: 2px;
+}
+
+
+/* =========================
+   Reduced Motion
+   ========================= */
+   
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none;
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  /* your existing mobile CSS */
+
+  aside[aria-labelledby="lead-details-heading"] dl {
+    grid-template-columns: 1fr;
+  }
+
+  aside[aria-labelledby="lead-details-heading"] > header {
+    padding-bottom: var(--spacing-md);
+  }
+
+  aside[aria-labelledby="lead-details-heading"] > footer {
+    flex-direction: column;
+  }
+
+  aside[aria-labelledby="lead-details-heading"] > footer button {
+    width: 100%;
+  }
+
+  aside[aria-labelledby="lead-details-heading"] {
+    padding: var(--spacing-md);
+  }
+
+  aside[aria-labelledby="lead-details-heading"] table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+/* =========================
+   Main Headings
+   ========================= */
+
+header h1 {
+  color: var(--color-primary);
+}
+
+section[aria-labelledby="filter-heading"] h2,
+section[aria-labelledby="pipeline-heading"] > h2 {
+  color: var(--color-primary-dark);
+}
+
+
+/* =========================
+   Pipeline Stage Headings
+   ========================= */
+
+section[aria-labelledby="pipeline-heading"] > section > h3 {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+  background: #e8f0fe;
+  color: var(--color-primary-dark);
+}
+
+
+/* Different Stage Heading Colors */
+
+section[aria-labelledby="new-lead-heading"] > h3 {
+  color: #2563eb;
+}
+
+section[aria-labelledby="contacted-heading"] > h3 {
+  color: #0891b2;
+}
+
+section[aria-labelledby="qualified-heading"] > h3 {
+  color: #7c3aed;
+}
+
+section[aria-labelledby="proposal-heading"] > h3 {
+  color: #d97706;
+}
+
+section[aria-labelledby="negotiation-heading"] > h3 {
+  color: #db2777;
+}
+
+section[aria-labelledby="won-heading"] > h3 {
+  color: #16a34a;
+}
+
+section[aria-labelledby="lost-heading"] > h3 {
+  color: #dc2626;
+}

@@ -1,3 +1,4 @@
+import "./App.css";
 function App() {
   return (
     <>
@@ -83,9 +84,9 @@ function App() {
 </section>
 
         <section aria-labelledby="pipeline-heading">
-  <h2 id="pipeline-heading">Sales Pipeline</h2>
+  {/* <h2 id="pipeline-heading">Sales Pipeline</h2> */}
 
-  <section aria-labelledby="new-lead-heading">
+  {/* <section aria-labelledby="new-lead-heading">
     <h3 id="new-lead-heading">New Lead</h3>
 
     <article>
@@ -131,7 +132,7 @@ function App() {
 
       <button type="button">View Details</button>
     </article>
-  </section>
+  </section> */}
 </section>
 <section aria-labelledby="pipeline-heading">
   <h2 id="pipeline-heading">Sales Pipeline</h2>
@@ -408,9 +409,288 @@ function App() {
     <button type="button">Move Stage</button>
   </footer>
 </aside>
+
+{/* <section aria-labelledby="semantic-patterns-heading">
+  <h2 id="semantic-patterns-heading">
+    Reusable Semantic Patterns
+  </h2> */}
+
+  {/* <section id="navigation" aria-labelledby="navigation-heading">
+    <h3 id="navigation-heading">Navigation</h3>
+
+    <nav aria-label="Pattern navigation">
+      <ul>
+        <li>
+          <a href="#buttons">Buttons</a>
+        </li>
+        <li> */}
+          {/* <a href="#cards">Cards</a>
+        </li>
+        <li>
+          <a href="#alerts">Alerts</a>
+        </li>
+        <li>
+          <a href="#forms">Forms</a>
+        </li>
+        <li>
+          <a href="#tables">Tables</a>
+        </li>
+      </ul> */}
+    {/* </nav>
+  </section>
+
+  <section id="buttons" aria-labelledby="buttons-heading">
+    <h3 id="buttons-heading">Buttons</h3> */}
+
+    {/* <button type="button">Primary Action</button>
+    <button type="button">Secondary Action</button>
+    <button type="button">Delete</button>
+    <button type="button" disabled>Disabled</button>
+  </section> */}
+
+  {/* Cards
+  <section id="cards" aria-labelledby="cards-heading">
+    <h3 id="cards-heading">Cards</h3>
+
+    <article>
+      <h4>Customer Card</h4>
+
+      <p>
+        This card contains customer information.
+      </p>
+
+      <p>
+        <strong>Customer:</strong> Arun Kumar
+      </p>
+
+      <button type="button">View Customer</button>
+    </article>
+
+    <article>
+      <h4>Opportunity Card</h4>
+
+      <p>
+        This card contains opportunity information.
+      </p>
+
+      <p>
+        <strong>Deal Value:</strong> ₹1,00,000
+      </p>
+
+      <button type="button">View Opportunity</button>
+    </article>
+  </section> */}
+
+  {/* Alerts */}
+  {/* <section id="alerts" aria-labelledby="alerts-heading">
+    <h3 id="alerts-heading">Alerts</h3>
+
+    <div role="status">
+      <strong>Success:</strong>
+      Your changes have been saved successfully.
+    </div>
+
+    <div role="alert">
+      <strong>Error:</strong>
+      Something went wrong. Please try again.
+    </div> */}
+
+    {/* <div role="status">
+      <strong>Information:</strong>
+      Your account information is up to date.
+    </div>
+
+    <div role="alert">
+      <strong>Warning:</strong>
+      Your session will expire soon.
+    </div>
+  </section> */}
+
+  {/* Forms */}
+  {/* <section id="forms" aria-labelledby="forms-heading">
+    <h3 id="forms-heading">Forms</h3>
+
+    <form>
+      <div>
+        <label htmlFor="full-name">
+          Full Name
+        </label> */}
+
+        {/* <input
+          type="text"
+          id="full-name"
+          name="fullName"
+          required
+        />
+      </div>
+
+      <div>
+        <label htmlFor="email">
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div> */}
+
+      {/* <div>
+        <label htmlFor="country">
+          Country
+        </label> */}
+
+        {/* <select
+          id="country"
+          name="country"
+          required
+        >
+          <option value="">
+            Select Country
+          </option>
+
+          <option value="india">
+            India
+          </option>
+
+          <option value="usa">
+            United States
+          </option> */}
+
+          {/* <option value="uk">
+            United Kingdom
+          </option>
+        </select>
+      </div> */}
+
+      {/* <fieldset>
+        <legend>Preferred Contact Method</legend>
+
+        <div>
+          <input
+            type="radio"
+            id="contact-email"
+            name="contactMethod"
+            value="email"
+          />
+
+          <label htmlFor="contact-email">
+            Email
+          </label>
+        </div> */}
+
+        {/* <div>
+          <input
+            type="radio"
+            id="contact-phone"
+            name="contactMethod"
+            value="phone"
+          />
+
+          <label htmlFor="contact-phone">
+            Phone
+          </label>
+        </div>
+      </fieldset> */}
+
+      {/* <div>
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          value="accepted"
+          required
+        />
+
+        <label htmlFor="terms">
+          I agree to the terms and conditions
+        </label>
+      </div> */}
+
+      {/* <div>
+        <label htmlFor="message">
+          Message
+        </label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+        />
+      </div>
+
+      <button type="submit">
+        Submit Form
+      </button> */}
+
+      {/* <button type="reset">
+        Reset Form
+      </button>
+    </form>
+  </section> */}
+
+  {/* Tables */}
+  {/* <section id="tables" aria-labelledby="tables-heading">
+    <h3 id="tables-heading">Tables</h3>
+
+    <table>
+      <caption>
+        Customer information table
+      </caption> */}
+
+      {/* <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Arun Kumar</td>
+          <td>arun@example.com</td>
+          <td>Active</td>
+          <td>
+            <button type="button">View</button>
+          </td>
+        </tr> */}
+
+        {/* <tr>
+          <td>Priya Singh</td>
+          <td>priya@example.com</td>
+          <td>Pending</td>
+          <td>
+            <button type="button">View</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Amit Verma</td>
+          <td>amit@example.com</td>
+          <td>Inactive</td>
+          <td>
+            <button type="button">View</button>
+          </td> */}
+        {/* </tr>
+      </tbody>
+    </table>
+  </section>
+</section> */}
+
+
+
+
+
+
       </main>
     </>
   )
+  
 }
+
 
 export default App
