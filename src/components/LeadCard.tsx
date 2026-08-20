@@ -5,6 +5,7 @@ interface LeadCardProps {
   leadScore: number;
   probability: number;
   onViewDetails: (lead: Lead) => void;
+  onDragStart: (leadId: number) => void;
 }
 
 function LeadCard({
@@ -12,9 +13,14 @@ function LeadCard({
   leadScore,
   probability,
   onViewDetails,
+  onDragStart,
 }: LeadCardProps) {
   return (
-    <article>
+    <article
+      draggable
+      onDragStart={() => onDragStart(lead.id)}
+    >
+      
       <h4>{lead.company}</h4>
 
       <p>

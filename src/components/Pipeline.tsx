@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PipelineColumn from "./PipelineColumn";
 import type { Lead } from "../types/lead";
 
@@ -6,14 +7,24 @@ interface PipelineProps {
   getLeadScore: (priority: Lead["priority"]) => number;
   getProbability: (stage: string) => number;
   onViewDetails: (lead: Lead) => void;
+  onUpdateLeadStage: (
+    leadId: number,
+    newStage: string
+  ) => void;
 }
+
+
 
 function Pipeline({
   filteredLeads,
   getLeadScore,
   getProbability,
   onViewDetails,
+  onUpdateLeadStage,
 }: PipelineProps) {
+  const [draggedLeadId, setDraggedLeadId] =
+    useState<number | null>(null);
+
   const stages = [
     {
       id: "new-lead-heading",
@@ -52,6 +63,25 @@ function Pipeline({
     },
   ];
 
+  // Store the lead that is being dragged
+  const handleDragStart = (leadId: number) => {
+    setDraggedLeadId(leadId);
+  };
+
+  // Handle dropped lead
+    const handleDrop = (newStage: string) => {
+      if (draggedLeadId === null) {
+        return;
+      }
+
+      onUpdateLeadStage(
+        draggedLeadId,
+        newStage
+      );
+
+      setDraggedLeadId(null);
+    };
+
   return (
     <section aria-labelledby="pipeline-heading">
       <h2 id="pipeline-heading">
@@ -78,6 +108,9 @@ function Pipeline({
             getLeadScore={getLeadScore}
             getProbability={getProbability}
             onViewDetails={onViewDetails}
+            onDragStart={handleDragStart}
+            onDrop={handleDrop}
+            value={stage.value}
           />
         );
       })}

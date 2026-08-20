@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import type { Lead } from "./types/lead";
 import { initialLeads } from "./data/leads";
@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import FilterBar from "./components/FilterBar";
 import Pipeline from "./components/Pipeline";
 import LeadDetails from "./components/LeadDetails";
+import CreateLead from "./components/CreateLead";
 
 function App() {
   const [selectedStage, setSelectedStage] = useState<string>("");
@@ -22,8 +23,88 @@ function App() {
   const [selectedSalesperson, setSelectedSalesperson] = useState<string>("");
   const [appliedSalesperson, setAppliedSalesperson] = useState<string>("");
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const [showCreateLead, setShowCreateLead] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const [leads, setLeads] = useState<Lead[]>(initialLeads);
+const [leads, setLeads] = useState<Lead[]>(() => {
+  const savedLeads = localStorage.getItem("crmLeads");
+      return savedLeads
+        ? JSON.parse(savedLeads)
+        : initialLeads;
+    });
+    useEffect(() => {
+      localStorage.setItem(
+        "crmLeads",
+        JSON.stringify(leads)
+      );
+}, [leads]);
+    const handleCreateLead = (newLead: Lead) => {
+      setLeads((prevLeads) => [...prevLeads, newLead]);
+
+      setShowCreateLead(false);
+
+      setSuccessMessage("Lead created successfully!");
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 3000);
+    };
+const handleUpdateLeadStage = async (
+  leadId: number,
+  newStage: string
+) => {
+  const draggedLead = leads.find(
+    (lead) => lead.id === leadId
+  );
+
+  if (!draggedLead) {
+    return;
+  }
+
+  const oldStage = draggedLead.stage;
+
+  // Optimistic UI update
+  setLeads((currentLeads) =>
+    currentLeads.map((lead) =>
+      lead.id === leadId
+        ? {
+            ...lead,
+            stage: newStage,
+          }
+        : lead
+    )
+  );
+
+  try {
+    // API call
+    await updateLeadStageApi(
+      leadId,
+      newStage
+    );
+
+    console.log(
+      "Lead stage updated successfully"
+    );
+
+  } catch (error) {
+    console.error(
+      "Failed to update lead stage:",
+      error
+    );
+
+    // Rollback
+    setLeads((currentLeads) =>
+      currentLeads.map((lead) =>
+        lead.id === leadId
+          ? {
+              ...lead,
+              stage: oldStage,
+            }
+          : lead
+      )
+    );
+  }
+};
 
   const getLeadScore = (priority: string): number => {
     switch (priority) {
@@ -68,6 +149,16 @@ function App() {
         return 0;
     }
   };
+
+const handleAddLead = (newLead: Lead) => {
+  setLeads((prevLeads) => [...prevLeads, newLead]);
+
+  setSuccessMessage("Lead created successfully!");
+
+  setTimeout(() => {
+    setSuccessMessage("");
+  }, 3000);
+};
 
   const filteredLeads = leads.filter((lead) => {
     const matchesStage =
@@ -122,9 +213,27 @@ function App() {
     0
   );
 
+   const updateLeadStageApi = (
+      leadId: number,
+      newStage: string
+    ): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => { 
+          const success = true;
+
+          if (success) {
+            resolve();
+          } else {
+            reject(new Error("Failed to update lead stage"));
+          }
+        }, 1000);
+      });
+    };
+
+
   return (
     <>
-      <Header onCreateLead={() => {}} />
+      <Header onCreateLead={() => setShowCreateLead(true)} />
 
       <main>
         <FilterBar
@@ -175,6 +284,7 @@ function App() {
           filteredLeads={filteredLeads}
           getLeadScore={getLeadScore}
           getProbability={getProbability}
+          onUpdateLeadStage={handleUpdateLeadStage}
           onViewDetails={(lead) => {
             setSelectedLead(lead);
           }}
@@ -186,7 +296,18 @@ function App() {
             setSelectedLead(null);
           }}
         />
+            {successMessage && (
+              <div className="success-message">
+                {successMessage}
+              </div>
+    )}
       </main>
+    {showCreateLead && (
+      <CreateLead
+        onAddLead={handleAddLead}
+        onClose={() => setShowCreateLead(false)}
+      />
+    )}
     </>
   );
 }
